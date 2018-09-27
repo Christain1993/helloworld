@@ -34,7 +34,6 @@ public class Human {
 		}.start();
 	}
 	
-	// 静态方法
 	public synchronized static void eat() throws Exception { 
 		Thread currentThread = Thread.currentThread();
 		

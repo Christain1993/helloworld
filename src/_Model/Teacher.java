@@ -1,5 +1,6 @@
 package _Model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -16,7 +17,9 @@ import _Jackson.JsondataFormatDeserialize;
 import _Jackson.JsondataFormatSerialize;
 
 @JacksonXmlRootElement(localName = "Teacher")
-public class Teacher {
+public class Teacher implements Serializable{
+	
+	private static final long serialVersionUID = -2252035700297532377L;
 	@JsonIgnore
 	private Long id;
 	@JacksonXmlProperty(isAttribute = true)

@@ -37,16 +37,21 @@ public class HttpclientTest {
 			HttpGet post = new HttpGet("http://www.bus365.com");
 			BasicClientCookie cookie = new BasicClientCookie("name", "zhaoke");
 			cookie.setVersion(0);
-			cookie.setDomain(""); // 设置范围
+			cookie.setDomain("bus365.com"); // 设置范围
 			cookie.setPath("/");
 			cookieStore.addCookie(cookie);
 			HttpClientContext context = new HttpClientContext();
 			context.setCookieStore(cookieStore);
 			CloseableHttpResponse execute = httpClient.execute(post,context);//
-			Header firstHeader = execute.getFirstHeader("Cookies");
-			InputStream content = execute.getEntity().getContent();
 			
-			System.out.println(firstHeader);
+			InputStream content = execute.getEntity().getContent();
+			HttpEntity entity = execute.getEntity();
+			Header[] allHeaders = execute.getAllHeaders();
+			for (Header header : allHeaders) {
+				System.out.println(header.getName());
+				System.out.println(header.getValue());
+				
+			}
 			List<Cookie> cookies = cookieStore.getCookies();
 			for (int i = 0; i < cookies.size(); i++) {
 				System.out.println("Local cookie: " + cookies.get(i));

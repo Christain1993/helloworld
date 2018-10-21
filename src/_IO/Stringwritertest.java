@@ -1,5 +1,6 @@
 package _IO;
 
+import java.io.RandomAccessFile;
 import java.io.StringWriter;
 
 public class Stringwritertest {
@@ -11,5 +12,7 @@ public class Stringwritertest {
 		writer.write("abcdefghijklmnopqrstuvwxyz1234567890");
 		String string = writer.toString();
 		System.out.println(string);
+		
+		
 	}
 }

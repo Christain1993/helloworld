@@ -31,13 +31,12 @@ public class HttpclientTest {
 		System.out.println(doGet);*/
 		 
 		CookieStore cookieStore = new BasicCookieStore();
-		CloseableHttpClient httpClient = HttpClients.custom().setProxy(new HttpHost("192.168.0.233", 8888)).build();
+		CloseableHttpClient httpClient = HttpClients.custom().setDefaultCookieStore(cookieStore).build();
 		try {
-			
-			HttpGet post = new HttpGet("http://www.bus365.com");
+			HttpGet post = new HttpGet("http://127.0.0.1:8080/httpclient/cookie");
 			BasicClientCookie cookie = new BasicClientCookie("name", "zhaoke");
 			cookie.setVersion(0);
-			cookie.setDomain(""); // 设置范围
+			cookie.setDomain("http://127.0.0.1"); // 设置范围
 			cookie.setPath("/");
 			cookieStore.addCookie(cookie);
 			HttpClientContext context = new HttpClientContext();
@@ -51,7 +50,8 @@ public class HttpclientTest {
 			for (int i = 0; i < cookies.size(); i++) {
 				System.out.println("Local cookie: " + cookies.get(i));
 			}
-			
+			CloseableHttpResponse execute2 = httpClient.execute(post,context);
+			System.out.println(EntityUtils.toString(execute2.getEntity(),"utf-8"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

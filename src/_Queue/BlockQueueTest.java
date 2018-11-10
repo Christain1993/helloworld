@@ -6,7 +6,6 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import _HttpClient.HttpclientTest;
 
 public class BlockQueueTest {
 
@@ -27,8 +26,6 @@ public class BlockQueueTest {
 //								queue.put(count++);
 								String name = Thread.currentThread().getName();
 								System.out.println("provider thread name " + name);
-								String doGet = HttpclientTest.doGet("http://www.ctrip.com/", new HashMap<>());
-								System.out.println(doGet);
 //								 if(count.equals(Integer.valueOf(100000))) { flag = false; }
 								 
 						

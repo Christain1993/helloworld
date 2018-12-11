@@ -36,8 +36,13 @@ public class DoubleTest {
 		return aa;
 	}
 	public static void main(String[] args) {
-		Double d = 20D;
-		double roundamount = roundamount(d*0.1, 3);
-		System.out.println(roundamount);
+//		Double d = 20D;
+//		double roundamount = roundamount(d*0.1, 3);
+//		System.out.println(roundamount);
+		final Double d ;
+		d = new Double(100);
+		System.out.println(d);
+		
+		
 	}
 }
